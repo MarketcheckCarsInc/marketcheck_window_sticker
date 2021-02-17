@@ -1,0 +1,240 @@
+<div id="WSpdf" *ngIf="rspFlag">
+  <div class="row left-container">
+    <div class="col-lg-7">
+      <div class="row left-container">
+        <div class="col-md-8">
+          <div class="company-logo"> <img src="assets/images/logo-footer.png"></div>
+          <div class="listing-heading">{{year}} {{make}} {{model}}</div>
+          <div class="listings-doors"> {{doors}}-DOOR</div>
+          <div class="listing-color">{{ext_color}} ({{ext_color_code}})</div>
+          <div class="row left-container">
+            <div class="col-md-6">
+              <div class="listing-features" *ngFor="let item of features | keyvalue; let i=index">
+                <div *ngIf="i % 2 == 0">
+                  <strong>{{item.key}}</strong>
+                  <ul class="listing-feature">
+                    <li *ngFor="let feature of item.value">{{ feature.name }}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="listing-features" *ngFor="let item of features | keyvalue; let i=index">
+                <div *ngIf="i % 2 != 0">
+                  <strong *ngIf="i % 2 != 0">{{item.key}}</strong>
+                  <ul class="listing-feature">
+                    <li *ngFor="let feature of item.value">{{ feature.name }}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="option-heading"><strong>Optional Equipment</strong></div>
+          <br>
+          <div class="installed-option" *ngFor="let option of installedOptionsArr | keyvalue">
+            <div class="option-pkg"><strong>{{option.key}}</strong></div>
+            <ng-template [ngIf]="option.value.msrp == 0">
+              <div class="option-msrp"><strong>INCLUDED</strong></div>
+            </ng-template>
+            <ng-template [ngIf]="option.value.msrp != 0">
+              <div class="option-msrp"><strong> $ {{option.value.msrp}}</strong></div>
+            </ng-template>
+          </div>
+          <div class="totalOptions">
+            <div class="totalOptionsMsrpkey"> <strong>Total Option MSRP</strong></div>
+            <div class="totalOptionsMsrpval"> <strong>${{ totalOptionsMsrp }}</strong></div>
+          </div>
+          <div class="destinationCharges">
+            <div class="destinationChargeskey"><strong> Destination/Handling</strong></div>
+            <div class="destinationChargesval"><strong>${{ destination_charges }}</strong></div>
+          </div>
+          <div class="totalMsrp">
+            <div class="totalMsrpkey"><strong>MSRP</strong> </div>
+            <div class="totalMsrpval"><strong>${{ msrp }}</strong> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="row fuel-economy-container">
+        <div class="fuel-container">
+          <div class="top-bar" id="top-bar">
+            <h2 class="sr-only">Top Links</h2>
+            <div class="row">
+              <div class="col-md-2">
+                <img src="assets/images/img1.jpg" />
+              </div>
+              <div class="col-md-10 hidden-xs">
+                <ul class="top-menu">
+                  <li>
+                    Fuel Economy and Environment</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <section class="featured section-block" id="featured">
+            <div class="container">
+              <div class="row ">
+                <div class="col-md-4">
+                  <div class="col-md-3 gas-icon">
+                    <img class="gas-img" src="assets/images/gas-station.svg">
+                  </div>
+                  <div class="col-md-12">
+                    <div class="gas-title">Fuel Economy</div>
+                    <div class="combined-mpg">
+                      <div class="combined-mpg-val"><strong>{{cmb_mpg}}</strong></div>
+                      combined city/hwy
+                    </div>
+
+                  </div>
+
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="gas-unit">MPG</div>
+                    <div class="col-md-6">
+                      <div class="city-mpg">
+                        <div class="city-mpg-val"><strong>{{cty_mpg}}</strong></div>
+                        city
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="hwy-mpg">
+                        <div class="hwy-mpg-val"><strong>{{hwy_mpg}}</strong></div>
+                        highway
+                      </div>
+                    </div>
+                    <div class="fuel-disclaimer">
+                      Compact cars range from 14 to 105 MPG.<br>
+                      The best Vehicle rates 121 MPGe.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="fuel-save-heading"> You Save <br>
+                    <div class="fuel-cost-save"><strong>$5,000</strong></div>
+                    in fuel costs <br> over 5 years
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <section class="featured section-block" id="featured">
+          <div class="container">
+            <div class="row">
+              <div class="left-container">
+                <div class="col-md-12">
+                  <div>
+                    <h5>Annual Fuel Cost</h5>
+                  </div>
+                  <div class="fuel-cost-annual"><strong>$1,300</strong></div>
+                </div>
+              </div>
+              <div class="col-md-12 fuel-disclaimer">
+                Actual results will vary for many reasons, including driving conditions and how you drive and maintain
+                your vehicle. The average new vehicle gets 23 MPG and costs $11,500 to fuel over 5 years. Cost
+                estimates are based on 15,000 miles per year at $3.50 per gallon. MPGe is miles per gasoline gallon
+                equivalent.
+                Vehicle emissions are a significant cause of climate change and smog.
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="row warrenty-safety-container">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="warrenty">
+              <div class="warrenty-powertrain-year">
+                <h3>{{powertrain_years}}-year</h3>
+              </div>
+              <div class="warrenty-powertrain-miles">
+                <h3>{{powertrain_miles}}-mile</h3>
+              </div>
+              <div class="warrenty-powertrain-text">
+                <h6>LIMITED POWERTRAIN WARRENTY</h6>
+              </div>
+            </div>
+            <br>
+            <div class="col-md-6">
+              <div class="powertrain-year-miles">
+                <h4>{{powertrain_years}} <span class="warrenty-type-text"> YEAR /</span> </h4>
+                <h4> {{powertrain_miles}} <span class="warrenty-type-text">MILE</span></h4>
+              </div>
+              <div class="powertrain-text"><strong>POWERTRAIN</strong></div>
+              <br>
+              <div class="bumper-year-miles">
+                <h4>{{bump_years}} <span class="warrenty-type-text"> YEAR /</span> </h4>
+                <h4> {{bump_miles}} <span class="warrenty-type-text">MILE</span></h4>
+              </div>
+              <div class="bumper-text"><strong>BUMPER-TO-BUMPER</strong></div>
+            </div>
+            <div class="col-md-6">
+              <div class="anticorrosion-year-miles">
+                <h4>{{anticoro_years}} <span class="warrenty-type-text"> YEAR /</span> </h4>
+                <h4> {{anticoro_miles}} <span class="warrenty-type-text">MILE</span></h4>
+              </div>
+              <div class="anticorrosion-text"><strong>ANTI-CORROSION/PERFORATION</strong></div>
+              <br>
+              <div class="roadside-assis-year-miles">
+                <h4>{{rsa_years}} <span class="warrenty-type-text"> YEAR /</span> </h4>
+                <h4> {{rsa_miles}} <span class="warrenty-type-text">MILE</span></h4>
+              </div>
+              <div class="roadside-assis-text"><strong>ROADSIDE ASSISTANCE</strong></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row safety-ratings">
+            <div class="heading"> GOVERNMENT 5-STAR SAFETY RATINGS </div>
+            <div class="safety-ratings-heading">
+              <h4>Overall Vehicle Score - {{overall_crash}} </h4>
+            </div>
+            <div class="safety-ratings-heading">
+              <h4>Rear Crash - {{rear_crash}}</h4>
+            </div>
+            <div class="safety-ratings-heading">
+              <h4>Side Crash - {{side_impact}}</h4>
+            </div>
+            <div class="safety-ratings-heading">
+              <h4>Roof Strength - {{roof_strength}}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row barcode-section">
+        <div class="barcode-container">
+          <div class="col-md-12">
+            <div class="barcode">
+              <ngx-barcode6 [bc-format]="''" [bc-value]='[ vin ]' [bc-display-value]="false" [bc-width]="1"
+                [bc-height]="50">
+              </ngx-barcode6>
+            </div>
+            <div class="barcode-details">
+              VIN : {{vin}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row disclaimer">
+        <div class="txt-disclaimer">
+          **Gasoline, license and title fees, applicable federal, state and local taxes and dealer and distributor installed options and accessories are not included
+in the manufacturer’s suggested retail price. This label has been applied to this vehicle pursuant to federal law and cannot be moved or altered prior
+to delivery to the ultimate purchaser.
+        </div>
+      </div>
+      <div class="row marketcheck-logo">
+        <div class="img-logo">
+          <img src="assets/images/logo-footer.png">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div>  
+  <input type="button" value="CPTURE" (click)="captureScreen()"/>  
+</div>  -->

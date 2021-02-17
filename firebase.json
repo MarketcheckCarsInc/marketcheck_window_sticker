@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/zerebralwidget",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
