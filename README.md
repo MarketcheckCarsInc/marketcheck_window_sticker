@@ -1,11 +1,11 @@
 1. Please add API_KEY at following path
-      src/app/app.component.html
+      "src/app/app.component.html"
       
 2. To install packages
-      npm install  
+      "npm install"  
       
 3. To run angular project run following command
-      ng serve --open
+      "ng serve --open"
       
 4. Use Vin as a query string parameter like shown below
   
