@@ -12,3 +12,6 @@
     http://localhost:4200/?vin=1FTWW32F31EB74385&domain=bestcarsofgeorgia.com
     
     http://localhost:4200/?vin=JA4AZ3A37EZ009084&domain=bestcarsofgeorgia.com
+    
+    
+    Join the discussion @[Marketcheck forums](https://forums.marketcheck.com/) 
